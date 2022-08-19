@@ -342,7 +342,8 @@ class raw_env(AECEnv, EzPickle):
 
     def step(self, action):
         if self.terminations[self.agent_selection]:
-            return self._was_done_step(action)
+            self._was_done_step(action)
+            return
         agent = self.agent_selection
         if not self.action_spaces[agent].contains(action):
             raise Exception(

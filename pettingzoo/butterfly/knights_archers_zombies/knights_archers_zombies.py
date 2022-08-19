@@ -486,7 +486,8 @@ class raw_env(AECEnv, EzPickle):
     def step(self, action):
         # check if the particular agent is done
         if self.terminations[self.agent_selection]:
-            return self._was_done_step(action)
+            self._was_done_step(action)
+            return
 
         # agent_list : list of agent instance indexed by number
         # agent_name_mapping: dict of {str, idx} for agent index and name
