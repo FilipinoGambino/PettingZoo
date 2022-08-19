@@ -574,9 +574,7 @@ class raw_env(AECEnv, EzPickle):
         if self.frames % self.recentFrameLimit == 0:
             self.recentPistons = set()
         if self._agent_selector.is_last():
-            self.terminations = dict(
-                zip(self.agents, [self.terminate for _ in self.agents])
-            )
+            self.terminations = dict(zip(self.agents, [self.terminate for _ in self.agents]))
 
         self.agent_selection = self._agent_selector.next()
         self._cumulative_rewards[agent] = 0
