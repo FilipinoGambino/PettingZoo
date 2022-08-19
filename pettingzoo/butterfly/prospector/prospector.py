@@ -765,8 +765,7 @@ class raw_env(AECEnv, EzPickle):
 
     def step(self, action):
         if self.terminations[self.agent_selection]:
-            self._was_done_step(action)
-            return
+            return self._was_done_step(action)
         agent_id = self.agent_selection
         all_agents_updated = self._agent_selector.is_last()
         self.rewards = {agent: 0 for agent in self.agents}

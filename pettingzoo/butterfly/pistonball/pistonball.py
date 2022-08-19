@@ -527,8 +527,7 @@ class raw_env(AECEnv, EzPickle):
 
     def step(self, action):
         if self.terminations[self.agent_selection]:
-            self._was_done_step(action)
-            return
+            return self._was_done_step(action)
 
         action = np.asarray(action)
         agent = self.agent_selection
